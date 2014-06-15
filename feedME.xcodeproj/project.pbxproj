@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		942955F97BB04AA69038907C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A796713172455A8F30CDC7 /* libPods.a */; };
 		B90F423B194A2863002F3357 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B90F423A194A2863002F3357 /* Foundation.framework */; };
 		B90F423D194A2863002F3357 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B90F423C194A2863002F3357 /* CoreGraphics.framework */; };
 		B90F423F194A2863002F3357 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B90F423E194A2863002F3357 /* UIKit.framework */; };
@@ -19,6 +20,12 @@
 		B90F4256194A2863002F3357 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B90F423E194A2863002F3357 /* UIKit.framework */; };
 		B90F425E194A2863002F3357 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B90F425C194A2863002F3357 /* InfoPlist.strings */; };
 		B90F4260194A2863002F3357 /* feedMETests.m in Sources */ = {isa = PBXBuildFile; fileRef = B90F425F194A2863002F3357 /* feedMETests.m */; };
+		B90F426C194A2FFF002F3357 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90F426A194A2FFF002F3357 /* MainViewController.m */; };
+		B90F426D194A2FFF002F3357 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90F426B194A2FFF002F3357 /* MainViewController.xib */; };
+		B90F4271194A3034002F3357 /* RestaurantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B90F426F194A3034002F3357 /* RestaurantTableViewCell.m */; };
+		B90F4272194A3034002F3357 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90F4270194A3034002F3357 /* RestaurantTableViewCell.xib */; };
+		B9ABAA67194B555000E9AF62 /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABAA66194B555000E9AF62 /* YelpClient.m */; };
+		B9ABAA6A194B5D1800E9AF62 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = B9ABAA69194B5D1800E9AF62 /* Restaurant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,18 @@
 		B90F425B194A2863002F3357 /* feedMETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "feedMETests-Info.plist"; sourceTree = "<group>"; };
 		B90F425D194A2863002F3357 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B90F425F194A2863002F3357 /* feedMETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = feedMETests.m; sourceTree = "<group>"; };
+		B90F4269194A2FFF002F3357 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
+		B90F426A194A2FFF002F3357 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		B90F426B194A2FFF002F3357 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
+		B90F426E194A3034002F3357 /* RestaurantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTableViewCell.h; sourceTree = "<group>"; };
+		B90F426F194A3034002F3357 /* RestaurantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewCell.m; sourceTree = "<group>"; };
+		B90F4270194A3034002F3357 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		B9ABAA65194B555000E9AF62 /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YelpClient.h; path = ../YelpClient.h; sourceTree = "<group>"; };
+		B9ABAA66194B555000E9AF62 /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YelpClient.m; path = ../YelpClient.m; sourceTree = "<group>"; };
+		B9ABAA68194B5D1800E9AF62 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		B9ABAA69194B5D1800E9AF62 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		F2A796713172455A8F30CDC7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1E61CA844D47A4B2BE0F6E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +77,7 @@
 				B90F423D194A2863002F3357 /* CoreGraphics.framework in Frameworks */,
 				B90F423F194A2863002F3357 /* UIKit.framework in Frameworks */,
 				B90F423B194A2863002F3357 /* Foundation.framework in Frameworks */,
+				942955F97BB04AA69038907C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +101,7 @@
 				B90F4259194A2863002F3357 /* feedMETests */,
 				B90F4239194A2863002F3357 /* Frameworks */,
 				B90F4238194A2863002F3357 /* Products */,
+				FD1E61CA844D47A4B2BE0F6E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +121,7 @@
 				B90F423C194A2863002F3357 /* CoreGraphics.framework */,
 				B90F423E194A2863002F3357 /* UIKit.framework */,
 				B90F4253194A2863002F3357 /* XCTest.framework */,
+				F2A796713172455A8F30CDC7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,10 +129,17 @@
 		B90F4240194A2863002F3357 /* feedME */ = {
 			isa = PBXGroup;
 			children = (
+				B90F4273194A3039002F3357 /* Models */,
+				B90F4269194A2FFF002F3357 /* MainViewController.h */,
+				B90F426A194A2FFF002F3357 /* MainViewController.m */,
+				B90F426B194A2FFF002F3357 /* MainViewController.xib */,
 				B90F4249194A2863002F3357 /* AppDelegate.h */,
 				B90F424A194A2863002F3357 /* AppDelegate.m */,
 				B90F424C194A2863002F3357 /* Images.xcassets */,
 				B90F4241194A2863002F3357 /* Supporting Files */,
+				B90F426E194A3034002F3357 /* RestaurantTableViewCell.h */,
+				B90F426F194A3034002F3357 /* RestaurantTableViewCell.m */,
+				B90F4270194A3034002F3357 /* RestaurantTableViewCell.xib */,
 			);
 			path = feedME;
 			sourceTree = "<group>";
@@ -144,6 +173,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B90F4273194A3039002F3357 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9ABAA65194B555000E9AF62 /* YelpClient.h */,
+				B9ABAA66194B555000E9AF62 /* YelpClient.m */,
+				B9ABAA68194B5D1800E9AF62 /* Restaurant.h */,
+				B9ABAA69194B5D1800E9AF62 /* Restaurant.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B90F4263194A2863002F3357 /* Build configuration list for PBXNativeTarget "feedME" */;
 			buildPhases = (
+				483619345A1E4CFC81B66ADE /* Check Pods Manifest.lock */,
 				B90F4233194A2863002F3357 /* Sources */,
 				B90F4234194A2863002F3357 /* Frameworks */,
 				B90F4235194A2863002F3357 /* Resources */,
+				36F0FFE56E6247B1AAADA3D5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,7 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90F4272194A3034002F3357 /* RestaurantTableViewCell.xib in Resources */,
 				B90F4245194A2863002F3357 /* InfoPlist.strings in Resources */,
+				B90F426D194A2FFF002F3357 /* MainViewController.xib in Resources */,
 				B90F424D194A2863002F3357 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,12 +278,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36F0FFE56E6247B1AAADA3D5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		483619345A1E4CFC81B66ADE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B90F4233194A2863002F3357 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90F4271194A3034002F3357 /* RestaurantTableViewCell.m in Sources */,
 				B90F424B194A2863002F3357 /* AppDelegate.m in Sources */,
+				B90F426C194A2FFF002F3357 /* MainViewController.m in Sources */,
+				B9ABAA67194B555000E9AF62 /* YelpClient.m in Sources */,
+				B9ABAA6A194B5D1800E9AF62 /* Restaurant.m in Sources */,
 				B90F4247194A2863002F3357 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +437,7 @@
 		};
 		B90F4264194A2863002F3357 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD1E61CA844D47A4B2BE0F6E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -369,6 +451,7 @@
 		};
 		B90F4265194A2863002F3357 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD1E61CA844D47A4B2BE0F6E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -439,6 +522,7 @@
 				B90F4265194A2863002F3357 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B90F4266194A2863002F3357 /* Build configuration list for PBXNativeTarget "feedMETests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +531,7 @@
 				B90F4268194A2863002F3357 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
