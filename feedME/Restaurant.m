@@ -19,6 +19,7 @@
         self.ratingImageUrl = dictionary[@"rating_img_url"];
         self.imageUrl = dictionary[@"image_url"];
         self.cuisine = [dictionary[@"categories"][0] componentsJoinedByString:@", "];
+        self.noOfReviews = dictionary[@"review_count"];
     }
     return self;
     

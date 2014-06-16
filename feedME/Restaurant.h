@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString *imageUrl;
 @property (nonatomic, strong) NSString *ratingImageUrl;
 @property (nonatomic, strong) NSString *cuisine;
+@property (nonatomic, strong) NSNumber *noOfReviews;
+
 
 - (id)initWithDictionary: (NSDictionary *)dictionary;
 + (NSArray *)restaurantsWithArray: (NSArray *)array;

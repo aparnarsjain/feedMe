@@ -13,10 +13,10 @@
 @property (nonatomic, strong) Restaurant *restaurant;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgRestaurant;
+@property (weak, nonatomic) IBOutlet UILabel *lblAddress;
+@property (weak, nonatomic) IBOutlet UILabel *lblCuisine;
+@property (weak, nonatomic) IBOutlet UILabel *lblReviewCount;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewRatings;
-@property (weak, nonatomic) IBOutlet UILabel *lblCuisine;
-@property (weak, nonatomic) IBOutlet UILabel *lblAddress;
-
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @end

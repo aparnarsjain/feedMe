@@ -17,7 +17,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    [self.imgRestaurant.layer setCornerRadius:5.0f];
+//    [self.imgRestaurant.layer setCornerRadius:5.0f];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -31,6 +31,7 @@
     self.lblName.text = restaurant.name;
     self.lblAddress.text = restaurant.address;
     self.lblCuisine.text = restaurant.cuisine;
+    self.lblReviewCount.text = [[restaurant.noOfReviews stringValue] stringByAppendingString:@" reviews"];
     [self.imgViewRatings setImageWithURL:[NSURL URLWithString:restaurant.ratingImageUrl]];
     [self.imgRestaurant setImageWithURL:[NSURL URLWithString:restaurant.imageUrl]];
 }
