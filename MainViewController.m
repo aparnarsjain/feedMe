@@ -34,22 +34,26 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
-        
-        [self.client searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
-//            NSLog(@"value: %@", [response objectForKey:@"businesses"]);
-        
-            self.restaurants = [Restaurant restaurantsWithArray:[response objectForKey:@"businesses"]];
-            [self.tableView reloadData];
-
-
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error: %@", [error description]);
-        }];
+        [self fetchDataWithParam:@"food"];
     }
     return self;
 }
 
+- (void) fetchDataWithParam: (NSString *) term  {
+    self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
+    
+    [self.client searchWithTerm:term success:^(AFHTTPRequestOperation *operation, id response) {
+        //            NSLog(@"value: %@", [response objectForKey:@"businesses"]);
+        
+        self.restaurants = [Restaurant restaurantsWithArray:[response objectForKey:@"businesses"]];
+        [self.tableView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [error description]);
+    }];
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,17 +65,15 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
     UIView *barWrapper = [[UIView alloc]initWithFrame:searchBar.bounds];
     [barWrapper addSubview:searchBar];
     self.navigationItem.titleView = barWrapper;
+    searchBar.delegate = self;
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-//    self.tableView.rowHeight = 130;
     
     UINib *cellNib = [UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RestaurantTableViewCell"];
     _stubCell = [cellNib instantiateWithOwner:nil options:nil][0];
 
-    
-//    [self.tableView registerNib:[UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil] forCellReuseIdentifier:@"RestaurantTableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,5 +113,23 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 //    vc.movie = self.movies[indexPath.row];
 //    [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - Search Bar methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+//    self.filterOptions.searchTerm = searchBar.text;
+    [self fetchDataWithParam: searchBar.text];
+//    [self fetchDataAndReloadTable];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+//    self.filterOptions.searchTerm = nil;
+//    [self fetchDataAndReloadTable];
+}
+
 
 @end
