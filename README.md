@@ -24,6 +24,7 @@ Completed user stories:
 - AFNetworking
 
 ####Preview-
+![alt tag](https://raw.githubusercontent.com/aparnarsjain/feedMe/master/feedMe.gif)
  
 
 
