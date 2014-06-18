@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
-        self.address = dictionary[@"location"][@"address"][0];
+        self.address = [dictionary[@"location"][@"address"] count] ? dictionary[@"location"][@"address"][0] : @"";
         self.ratingImageUrl = dictionary[@"rating_img_url"];
         self.imageUrl = dictionary[@"image_url"];
         self.cuisine = [dictionary[@"categories"][0] componentsJoinedByString:@", "];

@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "FiltersViewController.h"
 #import "YelpClient.h"
 #import "Restaurant.h"
 #import "RestaurantTableViewCell.h"
@@ -22,7 +22,10 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSArray *restaurants;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-//@property (nonatomic, strong) CCACustomCell *stubCell;
+@property (nonatomic, strong) UINavigationController *fnc;
+@property (nonatomic, strong)     UISearchBar *searchBar;// = [UISearchBar new];
+
+
 
 @end
 
@@ -34,46 +37,58 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self fetchDataWithParam:@"food"];
+        [self fetchDataWithParam];
     }
     return self;
 }
 
-- (void) fetchDataWithParam: (NSString *) term  {
+- (void) fetchDataWithParam {
     self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
-    
-    [self.client searchWithTerm:term success:^(AFHTTPRequestOperation *operation, id response) {
-        //            NSLog(@"value: %@", [response objectForKey:@"businesses"]);
-        
+    [self.client searchWithParameters:[self.filters searchParams] success:^(AFHTTPRequestOperation *operation, id response) {
         self.restaurants = [Restaurant restaurantsWithArray:[response objectForKey:@"businesses"]];
         [self.tableView reloadData];
-        
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error: %@", [error description]);
+        
     }];
-
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    UISearchBar *searchBar = [UISearchBar new];
-    searchBar.showsCancelButton = YES;
-    [searchBar sizeToFit];
-    UIView *barWrapper = [[UIView alloc]initWithFrame:searchBar.bounds];
-    [barWrapper addSubview:searchBar];
+    self.filters = [[Filters alloc] init];
+    
+    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStyleDone target:self action:@selector(onFilterButtonClick)];
+    self.navigationItem.leftBarButtonItem = filterButton;
+    
+    self.searchBar = [UISearchBar new];
+    self.searchBar.showsCancelButton = YES;
+    [self.searchBar sizeToFit];
+    UIView *barWrapper = [[UIView alloc]initWithFrame:self.searchBar.bounds];
+    [barWrapper addSubview:self.searchBar];
     self.navigationItem.titleView = barWrapper;
-    searchBar.delegate = self;
+    self.searchBar.delegate = self;
+
+    
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    FiltersViewController *fvc = [[FiltersViewController alloc] init];
+    fvc.filters = self.filters;
+    self.fnc = [[UINavigationController alloc] initWithRootViewController:fvc];
     
     UINib *cellNib = [UINib nibWithNibName:@"RestaurantTableViewCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RestaurantTableViewCell"];
     _stubCell = [cellNib instantiateWithOwner:nil options:nil][0];
 
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    [self.searchBar becomeFirstResponder];
+    [self fetchDataWithParam];
+}
+- (void)onFilterButtonClick {
+   [self presentViewController:self.fnc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,9 +112,6 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self configureCell:_stubCell atIndexPath:indexPath];
-    [_stubCell layoutSubviews];
-    
     CGSize size = [_stubCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
 //    NSLog(@"--> height: %f", size.height);
     return size.height+1;
@@ -108,26 +120,20 @@ NSString * const kYelpTokenSecret = @"_r-qShCvWJdzMWElWR62wxBE2R8";
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 130.f;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    MovieDetailsViewController *vc = [[MovieDetailsViewController alloc] init];
-//    vc.movie = self.movies[indexPath.row];
-//    [self.navigationController pushViewController:vc animated:YES];
-}
 
 #pragma mark - Search Bar methods
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
-//    self.filterOptions.searchTerm = searchBar.text;
-    [self fetchDataWithParam: searchBar.text];
-//    [self fetchDataAndReloadTable];
+    self.filters.searchTerm = searchBar.text;
+    [self fetchDataWithParam];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
     searchBar.text = @"";
-//    self.filterOptions.searchTerm = nil;
+//    self.filters.searchTerm = nil;
 //    [self fetchDataAndReloadTable];
 }
 

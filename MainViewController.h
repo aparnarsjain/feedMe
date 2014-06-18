@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Filters.h"
 
 @interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
-
+@property (nonatomic, strong) Filters *filters;
+- (void)fetchDataWithParam;
 @end
